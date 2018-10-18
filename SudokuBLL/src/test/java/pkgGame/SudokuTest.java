@@ -123,8 +123,46 @@ public class SudokuTest {
 
 	}
 
+	@Test
+	public void isValidColumnValue_test1() throws Exception{
+		int[][] puzzle= {{1,0,0,0},{2,0,0,0},{0,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertTrue(s1.isValidColumnValue(0,3));
+	
+	}
 
-
-
+	@Test
+	public void isValidColumnValue_test2() throws Exception{
+		int[][] puzzle= {{1,0,0,0},{2,0,0,0},{3,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertFalse(s1.isValidColumnValue(0,3));
+	}
+	@Test
+	public void isValidRowValue_test1() throws Exception{
+		int[][] puzzle= {{1,2,3,0},{2,0,0,0},{3,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertTrue(s1.isValidRowValue(0,4));
+	}
+	
+	@Test
+	public void isValidRowValue_test2() throws Exception{
+		int[][] puzzle= {{1,2,3,4},{0,0,0,0},{3,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertFalse(s1.isValidRowValue(0,4));
+	}
+	
+	@Test
+	public void isValidRegionValue_test1() throws Exception{
+		int[][] puzzle= {{1,2,3,4},{3,0,0,0},{0,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertTrue(s1.isValidRegionValue(0,0,4));
+	}
+	
+	@Test
+	public void isValidRegionValue_test2() throws Exception{
+		int[][] puzzle= {{1,2,0,0},{4,3,0,0},{3,0,0,0},{4,0,0,0}};
+			Sudoku s1=new Sudoku(puzzle);
+			assertFalse(s1.isValidRegionValue(0,0,3));
+	}
 
 }
